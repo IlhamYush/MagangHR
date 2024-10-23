@@ -1,27 +1,26 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import classNames from "classnames";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import classNames from 'classnames';
 
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import Grow from "@material-ui/core/Grow";
-import Paper from "@material-ui/core/Paper";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Hidden from "@material-ui/core/Hidden";
-import Poppers from "@material-ui/core/Popper";
-import Divider from "@material-ui/core/Divider";
+import { makeStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Hidden from '@material-ui/core/Hidden';
+import Poppers from '@material-ui/core/Popper';
+import Divider from '@material-ui/core/Divider';
 
 // @material-ui/icons
 // import Person from "@material-ui/icons/Person";
 // import Notifications from "@material-ui/icons/Notifications";
 
 // core components
-import Button from "components/CustomButtons/Button.js";
-import avatar1 from "assets/img/faces/marc.jpg";
-import styles from "assets/jss/material-dashboard-react/components/headerLinksStyle.js";
-import UserProfile from "views/UserProfile/UserProfile";
+import Button from 'components/CustomButtons/Button.js';
+import avatar1 from 'assets/img/faces/marc.jpg';
+import styles from 'assets/jss/material-dashboard-react/components/headerLinksStyle.js';
 
 const useStyles = makeStyles(styles);
 
@@ -56,9 +55,14 @@ export default function AdminNavbarLinks() {
   };
 
   const OpenProfileRoutes = () => {
-    history.push("/admin/user");
+    history.push('/admin/user');
     handleCloseProfile(null);
   };
+
+  const OpenLoginRoutes = () => {
+    history.push('/login');
+    handleCloseProfile
+  }
 
   return (
     <div>
@@ -143,10 +147,10 @@ export default function AdminNavbarLinks() {
 
       <div className={classes.manager}>
         <Button
-          color={window.innerWidth > 959 ? "transparent" : "white"}
+          color={window.innerWidth > 959 ? 'transparent' : 'white'}
           // justIcon={window.innerWidth > 959}
           // simple={!(window.innerWidth > 959)}
-          aria-owns={openProfile ? "profile-menu-list-grow" : null}
+          aria-owns={openProfile ? 'profile-menu-list-grow' : null}
           aria-haspopup="true"
           onClick={handleClickProfile}
           className={classes.buttonLink}
@@ -156,13 +160,15 @@ export default function AdminNavbarLinks() {
               src={avatar1}
               alt="Profile Icon"
               className={classes.profileIcon}
-              style={{height: "60px", width: "auto"}}
+              style={{ height: '60px', width: 'auto' }}
             />
           </div>
 
           {/* <Person className={classes.icons} /> */}
           <div className={classes.userInfo}>
-            <span className={classes.userName}>Nicholas Davi Erlangga Susilo</span>
+            <span className={classes.userName}>
+              Nicholas Davi Erlangga Susilo
+            </span>
             <span className={classes.userEmail}>lazz123@gmail.com</span>
           </div>
           <Hidden mdUp implementation="css">
@@ -175,11 +181,11 @@ export default function AdminNavbarLinks() {
           anchorEl={openProfile}
           transition
           disablePortal
-          anchorOrigin={{vertical: "bottom", horizontal: "center"}}
-          transformOrigin={{vertical: "top", horizontal: "center"}}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          transformOrigin={{ vertical: 'top', horizontal: 'center' }}
           className={
             classNames({ [classes.popperClose]: !openProfile }) +
-            " " +
+            ' ' +
             classes.popperNav
           }
         >
@@ -189,7 +195,7 @@ export default function AdminNavbarLinks() {
               id="profile-menu-list-grow"
               style={{
                 transformOrigin:
-                  placement === "bottom" ? "center top" : "center bottom",
+                  placement === 'bottom' ? 'center top' : 'center bottom',
               }}
             >
               <Paper className={classes.dropdown}>
@@ -210,7 +216,7 @@ export default function AdminNavbarLinks() {
                     </MenuItem>
                     <Divider light />
                     <MenuItem
-                      onClick={handleCloseProfile}
+                      onClick={OpenLoginRoutes}
                       className={classes.dropdownItem}
                     >
                       Logout

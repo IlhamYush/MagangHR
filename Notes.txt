@@ -1,0 +1,72 @@
+cursor: value < 1 ? 'pointer' : 'not-allowed'
+
+Sama saja dengan
+
+if (value === 1){
+    cursor = 'pointer';
+} else {
+    cursor = 'not-allowed';
+}
+
+
+const handleSubmitGeneric = async (endpoint, bodyData, successMessage) => {
+    await fetch('http://192.168.43.98:8080/api/${endpoint}', {
+      body: JSON.stringify(bodyData),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP ERROR! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(successMessage, data);
+        alert(successMessage);
+        setPosts((posts) => [data, ...posts]);
+
+        // Kondisi Menentukan API yang akan Berjalan
+        if (endpoint === 'addDepartement') {
+          setdepartement_name('');
+          setDepartement_head('');
+        } else if (endpoint === 'addDivision') {
+          setDivision_name('');
+        }
+      })
+      .catch((err) => {
+        console.error('HTTP ERROR! Status:', err.message);
+        alert(`${err.message || 'Unknown Error'}`);
+      });
+  };
+
+  const handleSubmitDepartment = (e) => {
+    e.preventDefault();
+    if (!departement_name || !departement_head) {
+      alert('Departement dan Kepala Departemen Diperlukan');
+      return;
+    }
+    handleSubmitGeneric(
+      'addDepartement',
+      { departement_name, departement_head },
+      'Data Departement Berhasil Didaftarkan',
+    );
+  };
+
+  const handleSubmitDivision = (e) => {
+    e.preventDefault();
+    if (!division_name) {
+      alert('Mohon untuk mengisi divisi');
+      return;
+    }
+    handleSubmitGeneric(
+      'addDivision',
+      { division_name },
+      'Data Divisi Berhasil Dimasukkan',
+    );
+  };
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };

@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
 //Styles
 // import { makeStyles } from "@material-ui/core/styles";
 
 //Core Components
-import GridItem from "components/Grid/GridItem";
-import GridContainer from "components/Grid/GridContainer";
-import CustomInput from "components/CustomInput/CustomInput";
-import Button from "components/CustomButtons/Button";
-import CardBody from "components/Card/CardBody";
-import CardFooter from "components/Card/CardFooter";
+import GridItem from 'components/Grid/GridItem';
+import GridContainer from 'components/Grid/GridContainer';
+import CustomInput from 'components/CustomInput/CustomInput';
+import Button from 'components/CustomButtons/Button';
+import CardBody from 'components/Card/CardBody';
+import CardFooter from 'components/Card/CardFooter';
 
 // const styles = {
 //   cardCategoryWhite: {
@@ -43,12 +43,12 @@ export default function PersonalInfo() {
       <CardBody>
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
-            <div style={{ display: "flex", justifyContent: "left" }}>
+            <div style={{ display: 'flex', justifyContent: 'left' }}>
               <h4
                 style={{
-                  fontWeight: "bold",
-                  marginBottom: "30px",
-                  marginTop: "12px",
+                  fontWeight: 'bold',
+                  marginBottom: '30px',
+                  marginTop: '12px',
                 }}
               >
                 Personal Information
@@ -57,15 +57,15 @@ export default function PersonalInfo() {
           </GridItem>
           <hr
             style={{
-              width: "100%",
-              margin: "auto",
-              borderTop: "1px solid #ddd",
+              width: '100%',
+              margin: 'auto',
+              borderTop: '1px solid #ddd',
             }}
           />
         </GridContainer>
 
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={3}>
             <CustomInput
               labelText="Name"
               id="NamePersonal"
@@ -75,7 +75,7 @@ export default function PersonalInfo() {
             />
           </GridItem>
 
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={3}>
             <CustomInput
               labelText="Nomor Induk Pegawai"
               id="NomorInduk"
@@ -85,7 +85,7 @@ export default function PersonalInfo() {
             />
           </GridItem>
 
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={3}>
             <CustomInput
               labelText="Nomor KTP"
               id="NomorKTP"
@@ -94,10 +94,8 @@ export default function PersonalInfo() {
               }}
             />
           </GridItem>
-        </GridContainer>
 
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={3}>
             <CustomInput
               labelText="Nomor NPWP"
               id="NomorNPWP"
@@ -106,8 +104,10 @@ export default function PersonalInfo() {
               }}
             />
           </GridItem>
+        </GridContainer>
 
-          <GridItem xs={12} sm={12} md={4}>
+        <GridContainer>
+          <GridItem xs={12} sm={12} md={6}>
             <CustomInput
               labelText="Kartu Keluarga"
               id="KartuKeluarga"
@@ -117,10 +117,10 @@ export default function PersonalInfo() {
             />
           </GridItem>
 
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <CustomInput
-              labelText="Jenis Kelamin"
-              id="JenisKelamin"
+              labelText="Alamat Lengkap"
+              id="AlamatLengkap"
               formControlProps={{
                 fullWidth: true,
               }}
@@ -129,7 +129,7 @@ export default function PersonalInfo() {
         </GridContainer>
 
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={3}>
             <CustomInput
               labelText="Agama"
               id="Agama"
@@ -139,7 +139,7 @@ export default function PersonalInfo() {
             />
           </GridItem>
 
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={3}>
             <CustomInput
               labelText="Tempat Lahir"
               id="TempatLahir"
@@ -149,10 +149,20 @@ export default function PersonalInfo() {
             />
           </GridItem>
 
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={3}>
             <CustomInput
-              labelText="Alamat Lengkap"
-              id="AlamatLengkap"
+              labelText="Jenis Kelamin"
+              id="JenisKelamin"
+              formControlProps={{
+                fullWidth: true,
+              }}
+            />
+          </GridItem>
+
+          <GridItem xs={12} sm={12} md={3}>
+            <CustomInput
+              labelText="Nama Ibu Kandung"
+              id="NamaIbu"
               formControlProps={{
                 fullWidth: true,
               }}
@@ -193,7 +203,7 @@ export default function PersonalInfo() {
         </GridContainer>
 
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <CustomInput
               labelText="Nomor Kontak Darurat"
               id="NoKontakDarurat"
@@ -203,7 +213,7 @@ export default function PersonalInfo() {
             />
           </GridItem>
 
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <CustomInput
               labelText="Email Pribadi"
               id="EmailPribadi"
@@ -212,7 +222,9 @@ export default function PersonalInfo() {
               }}
             />
           </GridItem>
+        </GridContainer>
 
+        <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <CustomInput
               labelText="Pendidikan Terakhir"
@@ -222,9 +234,7 @@ export default function PersonalInfo() {
               }}
             />
           </GridItem>
-        </GridContainer>
 
-        <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <CustomInput
               labelText="Jurusan"
@@ -244,20 +254,10 @@ export default function PersonalInfo() {
               }}
             />
           </GridItem>
-
-          <GridItem xs={12} sm={12} md={4}>
-            <CustomInput
-              labelText="Nama Ibu Kandung"
-              id="NamaIbu"
-              formControlProps={{
-                fullWidth: true,
-              }}
-            />
-          </GridItem>
         </GridContainer>
 
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <CustomInput
               labelText="Status Pernikahan"
               id="Pernikahan"
@@ -267,7 +267,7 @@ export default function PersonalInfo() {
             />
           </GridItem>
 
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <CustomInput
               labelText="Jumlah Anak"
               id="JumlahAnak"
@@ -276,8 +276,10 @@ export default function PersonalInfo() {
               }}
             />
           </GridItem>
+        </GridContainer>
 
-          <GridItem xs={12} sm={12} md={4}>
+        <GridContainer>
+          <GridItem xs={12} sm={12} md={6}>
             <CustomInput
               labelText="Bank"
               id="NamaBank"
@@ -286,10 +288,7 @@ export default function PersonalInfo() {
               }}
             />
           </GridItem>
-        </GridContainer>
-
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={12}>
+          <GridItem xs={12} sm={12} md={6}>
             <CustomInput
               labelText="Nomor Rekening"
               id="NoRekening"
@@ -302,7 +301,7 @@ export default function PersonalInfo() {
       </CardBody>
 
       <CardFooter>
-        <Button color="primary" round> 
+        <Button color="primary" round>
           Update Information
         </Button>
       </CardFooter>

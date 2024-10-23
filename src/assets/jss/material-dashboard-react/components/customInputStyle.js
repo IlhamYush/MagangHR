@@ -4,51 +4,50 @@ import {
   successColor,
   grayColor,
   defaultFont,
-} from "assets/jss/material-dashboard-react.js";
+} from 'assets/jss/material-dashboard-react.js';
 
 const customInputStyle = {
   disabled: {
-    "&:before": {
-      backgroundColor: "transparent !important",
+    '&:before': {
+      backgroundColor: 'transparent !important',
     },
   },
   underline: {
-    "&:hover:not($disabled):before,&:before": {
-      borderColor: grayColor[4] + " !important",
-      // borderWidth: "1px !important",
-      // borderStyle: "solid",
-      // borderRadius: "8px",
+    '&:hover:not($disabled):before,&:before': {
+      borderColor: grayColor[4] + ' !important',
     },
-    "&:after": {
+    '&:after': {
       borderColor: primaryColor[0],
-      // borderWidth: "1px",
-      // borderStyle: "solid",
-      // borderRadius: "8px",
     },
   },
+  notchedOutline: {
+    borderRadius: '8px', // Menambahkan borderRadius khusus
+    borderWidth: '2px',
+    // padding: "0 10px",
+  },
   underlineError: {
-    "&:after": {
+    '&:after': {
       borderColor: dangerColor[0],
-      // borderWidth: "1px",
-      // borderStyle: "solid",
-      // borderRadius: "8px",
     },
   },
   underlineSuccess: {
-    "&:after": {
+    '&:after': {
       borderColor: successColor[0],
-      // borderWidth: "1px",
-      // borderStyle: "solid",
-      // borderRadius: "8px",
     },
   },
   labelRoot: {
     ...defaultFont,
-    color: grayColor[3] + " !important",
-    fontWeight: "400",
-    fontSize: "14px",
-    lineHeight: "1.42857",
-    letterSpacing: "unset",
+    color: grayColor[3] + ' !important',
+    fontWeight: '400',
+    fontSize: '14px',
+    lineHeight: '1.42857',
+    letterSpacing: 'unset',
+    transition: 'transform 0.3s ease-out',
+    opacity: 1,
+  },
+  labelHidden: {
+    opacity: 0,
+    transition: 'transform 0.3s ease-out',
   },
   labelRootError: {
     color: dangerColor[0],
@@ -57,30 +56,27 @@ const customInputStyle = {
     color: successColor[0],
   },
   feedback: {
-    position: "absolute",
-    top: "18px",
-    right: "0",
-    zIndex: "2",
-    display: "block",
-    width: "24px",
-    height: "24px",
-    textAlign: "center",
-    pointerEvents: "none",
-  },
-  marginTop: {
-    marginTop: "16px",
+    position: 'absolute',
+    top: '18px',
+    right: '0',
+    zIndex: '2',
+    display: 'block',
+    width: '20px',
+    height: '20px',
+    textAlign: 'center',
+    pointerEvents: 'none',
   },
   formControl: {
-    paddingBottom: "10px",
-    margin: "27px 0 0 0",
-    position: "relative",
-    verticalAlign: "unset",
+    paddingBottom: '10px',
+    margin: '27px 0 0 0',
+    position: 'relative',
+    verticalAlign: 'unset',
   },
   labelRTL: {
     right: 0,
-    transition: "all 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms",
-    "&.MuiInputLabel-shrink": {
-      transform: "translate(0, 1.5px)",
+    transition: 'all 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms',
+    '&.MuiInputLabel-shrink': {
+      transform: 'translate(0, 1.5px)',
     },
   },
 };

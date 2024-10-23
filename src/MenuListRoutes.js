@@ -1,66 +1,66 @@
-import React, { useState, useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
+import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 // Icon import (sesuaikan dengan kebutuhanmu)
-import ImportContactsRoundedIcon from "@material-ui/icons/ImportContactsRounded";
-import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
-import CameraAltRoundedIcon from "@material-ui/icons/CameraAltRounded";
-import LockOpenRoundedIcon from "@material-ui/icons/LockOpenRounded";
+import ImportContactsRoundedIcon from '@material-ui/icons/ImportContactsRounded';
+import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
+import CameraAltRoundedIcon from '@material-ui/icons/CameraAltRounded';
+import LockOpenRoundedIcon from '@material-ui/icons/LockOpenRounded';
 
 // Definisikan styles
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
-    width: "100%",
-    backgroundColor: "#fff",
-    borderRadius: "10px",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+    width: '100%',
+    backgroundColor: '#fff',
+    borderRadius: '10px',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
   },
   menuItem: {
-    borderRadius: "8px",
-    "&:hover": {
-      backgroundColor: "#f0f4ff",
+    borderRadius: '8px',
+    '&:hover': {
+      backgroundColor: '#f0f4ff',
     },
   },
   menuItemSelected: {
-    backgroundColor: "#e0ecff",
-    borderLeft: "4px solid #2979ff",
+    backgroundColor: '#e0ecff',
+    borderLeft: '4px solid #2979ff',
   },
   iconStyle: {
-    minWidth: "40px",
-    color: "#000",
+    minWidth: '40px',
+    color: '#000',
   },
   textStyle: {
     fontWeight: 500,
-    color: "#000",
+    color: '#000',
   },
 }));
 
 const routes = [
   {
-    path: "/basicinfo",
-    name: "Basic Information",
+    path: '/basicinfo',
+    name: 'Basic Information',
     icon: ImportContactsRoundedIcon,
-    layout: "/admin/user",
+    layout: '/admin/user',
   },
   {
-    path: "/personalinfo",
-    name: "Personal Information",
+    path: '/personalinfo',
+    name: 'Personal Information',
     icon: PersonRoundedIcon,
-    layout: "/admin/user",
+    layout: '/admin/user',
   },
   {
-    path: "/profilePicture",
-    name: "Profile Picture",
+    path: '/profilePicture',
+    name: 'Profile Picture',
     icon: CameraAltRoundedIcon,
-    layout: "/admin/user",
+    layout: '/admin/user',
   },
   {
-    path: "/password",
-    name: "Change Password",
+    path: '/password',
+    name: 'Change Password',
     icon: LockOpenRoundedIcon,
-    layout: "/admin/user",
+    layout: '/admin/user',
   },
 ];
 

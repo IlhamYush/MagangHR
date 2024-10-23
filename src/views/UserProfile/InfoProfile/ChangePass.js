@@ -1,34 +1,34 @@
-import React from "react";
+import React from 'react';
 
 //Styles
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 //Core Components
-import GridItem from "components/Grid/GridItem";
-import GridContainer from "components/Grid/GridContainer";
-import CustomInput from "components/CustomInput/CustomInput";
-import Button from "components/CustomButtons/Button";
-import Card from "components/Card/Card";
-import CardBody from "components/Card/CardBody";
-import CardHeader from "components/Card/CardHeader";
-import CardFooter from "components/Card/CardFooter";
+import GridItem from 'components/Grid/GridItem';
+import GridContainer from 'components/Grid/GridContainer';
+import CustomInput from 'components/CustomInput/CustomInput';
+import Button from 'components/CustomButtons/Button';
+import Card from 'components/Card/Card';
+import CardBody from 'components/Card/CardBody';
+import CardHeader from 'components/Card/CardHeader';
+import CardFooter from 'components/Card/CardFooter';
 
 const styles = {
   cardCategoryWhite: {
-    color: "rgba(255,255,255,.62)",
-    margin: "0",
-    fontSize: "14px",
-    marginTop: "0",
-    marginBottom: "0",
+    color: 'rgba(255,255,255,.62)',
+    margin: '0',
+    fontSize: '14px',
+    marginTop: '0',
+    marginBottom: '0',
   },
   cardTitleWhite: {
-    color: "#FFFFFF",
-    marginTop: "0px",
-    minHeight: "auto",
-    fontWeight: "300",
+    color: '#FFFFFF',
+    marginTop: '0px',
+    minHeight: 'auto',
+    fontWeight: '300',
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-    marginBottom: "3px",
-    textDecoration: "none",
+    marginBottom: '3px',
+    textDecoration: 'none',
   },
   // textStyle: {
   //     fontWeight: "bold",
@@ -46,12 +46,12 @@ export default function ChangePass() {
       <CardBody>
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
-            <div style={{ display: "flex", justifyContent: "left" }}>
+            <div style={{ display: 'flex', justifyContent: 'left' }}>
               <h4
                 style={{
-                  fontWeight: "bold",
-                  marginBottom: "30px",
-                  marginTop: "12px",
+                  fontWeight: 'bold',
+                  marginBottom: '30px',
+                  marginTop: '12px',
                 }}
               >
                 Change Password
@@ -60,9 +60,9 @@ export default function ChangePass() {
           </GridItem>
           <hr
             style={{
-              width: "100%",
-              margin: "auto",
-              borderTop: "1px solid #ddd",
+              width: '100%',
+              margin: 'auto',
+              borderTop: '1px solid #ddd',
             }}
           />
         </GridContainer>

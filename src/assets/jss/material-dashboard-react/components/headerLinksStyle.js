@@ -4,9 +4,9 @@ import {
   whiteColor,
   blackColor,
   grayColor,
-} from "assets/jss/material-dashboard-react.js";
+} from 'assets/jss/material-dashboard-react.js';
 
-import dropdownStyle from "assets/jss/material-dashboard-react/dropdownStyle.js";
+import dropdownStyle from 'assets/jss/material-dashboard-react/dropdownStyle.js';
 
 const headerLinksStyle = (theme) => ({
   ...dropdownStyle(theme),
@@ -28,131 +28,131 @@ const headerLinksStyle = (theme) => ({
   //   },
   // },
   linkText: {
-    zIndex: "4",
+    zIndex: '4',
     ...defaultFont,
-    fontSize: "14px",
-    margin: "0px",
+    fontSize: '14px',
+    margin: '0px',
   },
   buttonLink: {
-    marginRight: "auto",
-    height: "auto",
-    [theme.breakpoints.down("sm")]: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "flex-start",
-      margin: "10px 15px 0",
-      width: "-webkit-fill-available",
-      "& svg": {
-        width: "24px",
-        height: "30px",
-        marginRight: "15px",
-        marginLeft: "-15px",
+    marginRight: 'auto',
+    height: 'auto',
+    [theme.breakpoints.down('sm')]: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      margin: '10px 15px 0',
+      width: '-webkit-fill-available',
+      '& svg': {
+        width: '24px',
+        height: '30px',
+        marginRight: '15px',
+        marginLeft: '-15px',
       },
-      "& .fab,& .fas,& .far,& .fal,& .material-icons": {
-        fontSize: "24px",
-        lineHeight: "30px",
-        width: "24px",
-        height: "30px",
-        marginRight: "15px",
-        marginLeft: "-15px",
+      '& .fab,& .fas,& .far,& .fal,& .material-icons': {
+        fontSize: '24px',
+        lineHeight: '30px',
+        width: '24px',
+        height: '30px',
+        marginRight: '15px',
+        marginLeft: '-15px',
       },
-      "& > span": {
-        justifyContent: "flex-start",
-        width: "100%",
+      '& > span': {
+        justifyContent: 'flex-start',
+        width: '100%',
       },
     },
   },
   searchButton: {
-    [theme.breakpoints.down("sm")]: {
-      top: "-50px !important",
-      marginRight: "22px",
-      float: "right",
+    [theme.breakpoints.down('sm')]: {
+      top: '-50px !important',
+      marginRight: '22px',
+      float: 'right',
     },
   },
   margin: {
-    zIndex: "4",
-    margin: "0",
+    zIndex: '4',
+    margin: '0',
   },
   searchIcon: {
-    width: "17px",
-    zIndex: "4",
+    width: '17px',
+    zIndex: '4',
   },
   notifications: {
-    zIndex: "4",
-    [theme.breakpoints.up("md")]: {
-      position: "absolute",
-      top: "2px",
-      border: "1px solid " + whiteColor,
-      right: "4px",
-      fontSize: "15px",
+    zIndex: '4',
+    [theme.breakpoints.up('md')]: {
+      position: 'absolute',
+      top: '2px',
+      border: '1px solid ' + whiteColor,
+      right: '4px',
+      fontSize: '15px',
       background: dangerColor[0],
       color: whiteColor,
-      minWidth: "16px",
-      height: "16px",
-      borderRadius: "10px",
-      textAlign: "center",
-      lineHeight: "16px",
-      verticalAlign: "middle",
-      display: "block",
+      minWidth: '16px',
+      height: '16px',
+      borderRadius: '10px',
+      textAlign: 'center',
+      lineHeight: '16px',
+      verticalAlign: 'middle',
+      display: 'block',
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('sm')]: {
       ...defaultFont,
-      fontSize: "14px",
-      marginRight: "8px",
+      fontSize: '14px',
+      marginRight: '8px',
     },
   },
   manager: {
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
     },
-    display: "inline-block",
+    display: 'inline-block',
   },
   searchWrapper: {
-    [theme.breakpoints.down("sm")]: {
-      width: "-webkit-fill-available",
-      margin: "10px 15px 0",
+    [theme.breakpoints.down('sm')]: {
+      width: '-webkit-fill-available',
+      margin: '10px 15px 0',
     },
-    display: "inline-block",
+    display: 'inline-block',
   },
   userProfileIcon: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginRight: "10px",
-    "& img": {
-      width: "40px",
-      height: "40px",
-      borderRadius: "50%",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: '10px',
+    '& img': {
+      width: '40px',
+      height: '40px',
+      borderRadius: '50%',
     },
   },
   userInfo: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "center",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    maxWidth: "250px", // Batasi ukuran maksimal agar tidak melebar terlalu jauh
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    maxWidth: '250px', // Batasi ukuran maksimal agar tidak melebar terlalu jauh
   },
   userName: {
     ...defaultFont,
-    fontSize: "14px",
-    fontWeight: "800",
+    fontSize: '14px',
+    fontWeight: '800',
     color: blackColor,
-    textOverflow: "ellipsis",
-    overflow: "hidden",
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
     // whiteSpace: "nowrap", // Untuk memastikan teks panjang terpotong dengan tanda ellipsis
-    maxWidth: "250px", // Batasi ukuran untuk menjaga alignment
+    maxWidth: '250px', // Batasi ukuran untuk menjaga alignment
   },
   userEmail: {
     ...defaultFont,
-    fontSize: "12px",
+    fontSize: '12px',
     color: grayColor[7],
-    textOverflow: "ellipsis",
-    overflow: "hidden",
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
     // whiteSpace: "nowrap",
-    maxWidth: "250px",
+    maxWidth: '250px',
   },
 });
 

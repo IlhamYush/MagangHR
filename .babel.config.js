@@ -1,22 +1,19 @@
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: [
-      "babel-preset-expo",
-      "@babel/preset-react"
-    ],
+    presets: ['babel-preset-expo', '@babel/preset-react'],
     plugins: [
-      "transform-class-properties",
-      "transform-react-jsx",
-      "transform-object-rest-spread",
+      'transform-class-properties',
+      'transform-react-jsx',
+      'transform-object-rest-spread',
       [
-        "module-resolver",
+        'module-resolver',
         {
-          root: ["./src"],
+          root: ['./src'],
         },
       ],
-      ["import-rename", { "^(.*)\\.jsx$": "$1" }],
-      "@babel/plugin-proposal-private-property-in-object",
+      ['import-rename', { '^(.*)\\.jsx$': '$1' }],
+      '@babel/plugin-proposal-private-property-in-object',
     ],
   };
 };
