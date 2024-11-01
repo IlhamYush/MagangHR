@@ -15,8 +15,6 @@ import FilterListRoundedIcon from '@material-ui/icons/FilterListRounded';
 import CustomInput from 'components/CustomInput/CustomInput';
 import AddEmployees from './AddEmployees';
 
-// import { Height } from "@material-ui/icons";
-
 export default function Employees() {
   const history = useHistory();
   const match = useRouteMatch();
@@ -36,29 +34,6 @@ export default function Employees() {
 
       <Card>
         <CardBody>
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={12}>
-              <div style={{ display: 'flex', justifyContent: 'left' }}>
-                <h4
-                  style={{
-                    fontWeight: 'bold',
-                    marginBottom: '30px',
-                    marginTop: '12px',
-                  }}
-                >
-                  Employees Data
-                </h4>
-              </div>
-            </GridItem>
-            <hr
-              style={{
-                width: '100%',
-                margin: 'auto',
-                borderTop: '1px solid #ddd',
-              }}
-            />
-          </GridContainer>
-
           <GridContainer>
             <GridItem xs={12} sm={12} md={12}>
               <div

@@ -8,65 +8,169 @@ if (value === 1){
     cursor = 'not-allowed';
 }
 
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+// import { InputAdornment, Typography } from '@material-ui/core';
+import Card from 'components/Card/Card';
+import CardBody from 'components/Card/CardBody';
+import CardFooter from 'components/Card/CardFooter';
+import { makeStyles } from '@material-ui/core/styles';
+import backgroundImage from 'assets/img/LOGIN.jpg'; // Sesuaikan path dengan lokasi file gambar Anda
+import API_BASE_URL from 'config/apiConfig';
+import api from 'config/apiService';
+import CustomInput from 'components/CustomInput/CustomInput';
+import Button from 'components/CustomButtons/Button';
 
-const handleSubmitGeneric = async (endpoint, bodyData, successMessage) => {
-    await fetch('http://192.168.43.98:8080/api/${endpoint}', {
-      body: JSON.stringify(bodyData),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP ERROR! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(successMessage, data);
-        alert(successMessage);
-        setPosts((posts) => [data, ...posts]);
+import logo from 'assets/img/RastekLogo.png';
 
-        // Kondisi Menentukan API yang akan Berjalan
-        if (endpoint === 'addDepartement') {
-          setdepartement_name('');
-          setDepartement_head('');
-        } else if (endpoint === 'addDivision') {
-          setDivision_name('');
-        }
-      })
-      .catch((err) => {
-        console.error('HTTP ERROR! Status:', err.message);
-        alert(`${err.message || 'Unknown Error'}`);
+
+// Hook untuk styling
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: '100vh',
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  card: {
+    maxWidth: 400,
+    padding: theme.spacing(3),
+    boxShadow: theme.shadows[5],
+    backgroundColor: 'rgba(255, 255, 255, 0.9)', // Set transparansi card
+    borderRadius: theme.spacing(3),
+  },
+}));
+
+function Login() {
+  const classes = useStyles();
+  const history = useHistory(); // Menggunakan useHistory untuk navigasi
+
+  const handleForgotPassword = () => {
+    alert('Redirecting to Forgot Password page...');
+  };
+
+  const [posts, setPosts] = useState([]);
+  const [isUsername, setisUsername] = useState('');
+  const [isPassword, setisPassword] = useState('');
+
+  const handleSubmitGeneric = async (
+    endpoint,
+    method,
+    bodyData,
+    successMessage,
+  ) => {
+    try {
+      console.log(`Sending ${method} request to ${API_BASE_URL}/${endpoint}`);
+      // console.log('Request body:', bodyData);
+      
+      const response = await api({
+        method: method, // Menentukan metode HTTP: 'get', 'post', 'put', 'delete', dll.
+        url: `/${endpoint}`, // Menentukan endpoint API
+        data: bodyData, // Data yang akan dikirim (hanya untuk POST, PUT, PATCH)
       });
+
+      console.log(successMessage, response.data);
+      alert(successMessage);
+      setPosts((posts) => [response.data, ...posts]);
+
+      if (endpoint === 'auth/login') {
+        // const token = response.data.token;
+        const token = response.data?.token || response.data?.data?.token;
+
+        if (token) {
+          localStorage.setItem('authToken', token);
+          console.log('Token: ', token);
+        } else {
+          console.warn('Token Tidak Ditemukan');
+        }
+
+        setisUsername('');
+        setisPassword('');
+        history.push('/admin/dashboard');
+      }
+    } catch (error) {
+      if (error.response) {
+        // Jika server merespon dengan error
+        const errorMessage = error.response.data.error['Error Description'];
+        console.error('Error:', errorMessage);
+        alert(`${errorMessage}`);
+      } else if (error.request) {
+        // Jika tidak ada respon dari server
+        console.error('No response received:', error.request);
+        alert('No response from the server.');
+      } else {
+        // Kesalahan saat membuat request
+        console.error('Error setting up request:', error.message);
+        alert(`Error: ${error.message || 'Unknown Error'}`);
+      }
+    }
   };
 
-  const handleSubmitDepartment = (e) => {
+  const handleSubmitLogin = (e) => {
     e.preventDefault();
-    if (!departement_name || !departement_head) {
-      alert('Departement dan Kepala Departemen Diperlukan');
+    if (!isUsername || !isPassword) {
+      alert('Isi form');
       return;
     }
     handleSubmitGeneric(
-      'addDepartement',
-      { departement_name, departement_head },
-      'Data Departement Berhasil Didaftarkan',
+      'auth/login', // Endpoint API
+      'post', // Metode HTTP yang digunakan
+      { username: isUsername, password: isPassword }, // Data yang dikirim
+      'Berhasil login!',
     );
   };
 
-  const handleSubmitDivision = (e) => {
-    e.preventDefault();
-    if (!division_name) {
-      alert('Mohon untuk mengisi divisi');
-      return;
-    }
-    handleSubmitGeneric(
-      'addDivision',
-      { division_name },
-      'Data Divisi Berhasil Dimasukkan',
-    );
-  };
+  return (
+    <div className={classes.root}>
+      <Card className={classes.card}>
+        <form onSubmit={handleSubmitLogin}>
+          <CardBody>
+            <img
+              src={logo}
+              alt="Logo"
+              style={{ display: 'block', margin: '0 auto', width: '70%', height: 'auto' }}
+            />
+            <CustomInput
+              id="username"
+              labelText="Username"
+              inputProps={{
+                value: isUsername,
+                onChange: (e) => setisUsername(e.target.value),
+              }}
+              formControlProps={{
+                fullWidth: true,
+              }}
+            />
+            <CustomInput
+              id="password"
+              labelText="Password"
+              inputProps={{
+                value: isPassword,
+                onChange: (e) => setisPassword(e.target.value),
+              }}
+              formControlProps={{
+                fullWidth: true,
+              }}
+            />
+          </CardBody>
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+          <CardFooter style={{ display: 'flex', justifyContent: 'center' }}>
+            <Button
+              color="primary"
+              round
+              type="submit"
+              style={{ alignItems: 'center' }}
+            >
+              <span style={{fontWeight: 'bold'}}> Sign In </span>
+            </Button>
+          </CardFooter>
+        </form>
+      </Card>
+    </div>
+  );
+}
+
+export default Login;

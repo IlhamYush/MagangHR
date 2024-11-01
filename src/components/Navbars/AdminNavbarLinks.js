@@ -42,6 +42,8 @@ export default function AdminNavbarLinks() {
   //   setOpenNotification(null);
   // };
 
+  const token = localStorage.getItem('authToken');
+
   const handleClickProfile = (event) => {
     if (openProfile && openProfile.contains(event.target)) {
       setOpenProfile(null);
@@ -60,9 +62,10 @@ export default function AdminNavbarLinks() {
   };
 
   const OpenLoginRoutes = () => {
+    localStorage.removeItem('authToken', token);
     history.push('/login');
-    handleCloseProfile
-  }
+    handleCloseProfile;
+  };
 
   return (
     <div>

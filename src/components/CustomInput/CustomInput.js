@@ -59,14 +59,14 @@ export default function CustomInput(props) {
             notchedOutline: classes.notchedOutline,
           },
         }}
-        InputLabelProps={{
-          classes: {
-            root: labelVisible ? classes.labelRoot : classes.labelHidden, // Mengontrol class label agar dapat berubah
-          },
-          shrink: false, // Tidak mengapungkan label secara otomatis
-        }}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
+        // InputLabelProps={{
+        //   classes: {
+        //     root: labelVisible ? classes.labelRoot : classes.labelHidden, // Mengontrol class label agar dapat berubah
+        //   },
+        //   shrink: false, // Tidak mengapungkan label secara otomatis
+        // }}
+        // onFocus={handleFocus}
+        // onBlur={handleBlur}
         fullWidth={formControlProps ? formControlProps.fullWidth : false}
         className={rtlActive ? classes.labelRTL : ''}
       />
