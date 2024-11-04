@@ -37,13 +37,6 @@ const dashboardRoutes = [
     layout: '/admin',
   },
   {
-    path: '/company',
-    name: 'Company',
-    icon: BusinessRoundedIcon,
-    component: CompanyManagement,
-    layout: '/admin',
-  },
-  {
     path: '/attendance',
     name: 'Attendance',
     rtlName: 'قائمة الجدول',
@@ -53,7 +46,7 @@ const dashboardRoutes = [
   },
   {
     path: '/typography',
-    name: 'Typography',
+    name: 'Leave Permission',
     rtlName: 'طباعة',
     icon: LibraryBooks,
     component: Typography,
@@ -61,10 +54,17 @@ const dashboardRoutes = [
   },
   {
     path: '/icons',
-    name: 'Icons',
+    name: 'Add Leave',
     rtlName: 'الرموز',
     icon: BubbleChart,
     component: Icons,
+    layout: '/admin',
+  },
+  {
+    path: '/company',
+    name: 'Company',
+    icon: BusinessRoundedIcon,
+    component: CompanyManagement,
     layout: '/admin',
   },
   {

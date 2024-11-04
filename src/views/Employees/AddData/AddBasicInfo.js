@@ -6,6 +6,28 @@ import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 import CustomInput from 'components/CustomInput/CustomInput';
 
+const leaveStyles = {
+  leaveInputContainer: {
+    border: '2px solid #ccc',
+    borderRadius: '7px',
+    padding: '10px',
+    display: 'flex',
+    gap: '10px',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    minHeight: '56px', // Ensures it matches the height of CustomInput fields
+  },
+  leaveButton: {
+    backgroundColor: '#9bbdf9', // Light blue background color for leave types
+    borderRadius: '20px',
+    padding: '8px 16px',
+    fontSize: '14px',
+    color: 'white',
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+};
+
 export default function AddBasicInfo() {
   return (
     <div>
@@ -27,6 +49,7 @@ export default function AddBasicInfo() {
           </div>
         </GridItem>
       </GridContainer>
+      
       <GridContainer>
         <GridItem xs={12} sm={12} md={4}>
           <CustomInput
@@ -35,9 +58,6 @@ export default function AddBasicInfo() {
             formControlProps={{
               fullWidth: true,
             }}
-            // inputProps={{
-            //   disabled: true,
-            // }}
           />
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
@@ -53,36 +73,6 @@ export default function AddBasicInfo() {
           <CustomInput
             labelText="Second Contract"
             id="email-address"
-            formControlProps={{
-              fullWidth: true,
-            }}
-          />
-        </GridItem>
-      </GridContainer>
-
-      <GridContainer>
-        <GridItem xs={12} sm={12} md={4}>
-          <CustomInput
-            labelText="Department"
-            id="first-name"
-            formControlProps={{
-              fullWidth: true,
-            }}
-          />
-        </GridItem>
-        <GridItem xs={12} sm={12} md={4}>
-          <CustomInput
-            labelText="Division"
-            id="last-name"
-            formControlProps={{
-              fullWidth: true,
-            }}
-          />
-        </GridItem>
-        <GridItem xs={12} sm={12} md={4}>
-          <CustomInput
-            labelText="Sub-Division"
-            id="Department"
             formControlProps={{
               fullWidth: true,
             }}
@@ -117,6 +107,18 @@ export default function AddBasicInfo() {
               fullWidth: true,
             }}
           />
+        </GridItem>
+      </GridContainer>
+
+      {/* Leave Entitlements Display Field */}
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={12}>
+          <label style={{ fontSize: '12px', color: '#aaa' }}>Leave Entitlements</label>
+          <div style={leaveStyles.leaveInputContainer}>
+            <div style={leaveStyles.leaveButton}>Cuti Tahunan</div>
+            <div style={leaveStyles.leaveButton}>Cuti Melahirkan</div>
+            <div style={leaveStyles.leaveButton}>Cuti Kerabat Meninggal</div>
+          </div>
         </GridItem>
       </GridContainer>
     </div>

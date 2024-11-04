@@ -47,29 +47,80 @@ export default function Dashboard() {
   return (
     <div>
       <GridContainer>
+        {/* <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="warning" stats icon>
+              <CardIcon color="warning">
+                <Icon><DateRange /></Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>Attendance</p>
+              <h3 className={classes.cardTitle}>24 October 2024</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <Update />
+                Last 15 Minutes
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem> */}
         <GridItem xs={12} sm={6} md={3}>
           <Card>
             <CardHeader color="warning" stats icon>
               <CardIcon color="warning">
-                <Icon>content_copy</Icon>
+                <DateRange />
               </CardIcon>
-              <p className={classes.cardCategory}>Total Projects</p>
-              <h3 className={classes.cardTitle}>
-                525 <small>Projects</small>
-              </h3>
+              <p className={classes.cardCategory}>Attendance</p>
+              <h3 className={classes.cardTitle}>25 October 2024</h3>
             </CardHeader>
+            <CardBody>
+              <div style={{ display: 'flex', justifyContent: 'center',gap: '15px', marginTop: '-5px', marginBottom: '-20px' }}>
+                <button
+                  style={{
+                    backgroundColor: '#4CAF50', /* Hijau */
+                    border: 'none',
+                    color: 'white',
+                    padding: '12px 25px',
+                    textAlign: 'center',
+                    textDecoration: 'none',
+                    display: 'inline-block',
+                    fontSize: '14px',
+                    margin: '4px 2px',
+                    cursor: 'pointer',
+                    borderRadius: '8px',
+                  }}
+                >
+                  Check In
+                </button>
+                <button
+                  style={{
+                    backgroundColor: '#f44336', /* Merah */
+                    border: 'none',
+                    color: 'white',
+                    padding: '12px 25px',
+                    textAlign: 'center',
+                    textDecoration: 'none',
+                    display: 'inline-block',
+                    fontSize: '14px',
+                    margin: '4px 2px',
+                    cursor: 'pointer',
+                    borderRadius: '8px',
+                  }}
+                >
+                  Check Out
+                </button>
+              </div>
+            </CardBody>
             <CardFooter stats>
               <div className={classes.stats}>
-                <Danger>
-                  <Warning />
-                </Danger>
-                <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                  Get more space
-                </a>
+                <Update />
+                Last 15 Minutes
               </div>
             </CardFooter>
           </Card>
         </GridItem>
+
+
 
         <GridItem xs={12} sm={6} md={3}>
           <Card>
@@ -84,7 +135,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
-                <DateRange />
+                <Update />
                 Last 24 Hours
               </div>
             </CardFooter>
@@ -98,7 +149,8 @@ export default function Dashboard() {
                 <Accessibility />
               </CardIcon>
               <p className={classes.cardCategory}>Total Employees</p>
-              <h3 className={classes.cardTitle}>250</h3>
+              <h3 className={classes.cardTitle}>
+                100 <small>Employees</small></h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
@@ -118,20 +170,21 @@ export default function Dashboard() {
                 type="Line"
                 options={dailySalesChart.options}
                 listener={dailySalesChart.animation}
+                style={{ height: '100px', width: '100%' }} // Menambahkan style untuk mengecilkan ukuran chart
               />
             </CardHeader>
             <CardBody>
-              <h4 className={classes.cardTitle}>Daily Sales</h4>
+              <h4 className={classes.cardTitle}>Projects Chart</h4>
               <p className={classes.cardCategory}>
                 <span className={classes.successText}>
                   <ArrowUpward className={classes.upArrowCardCategory} /> 55%
                 </span>{' '}
-                increase in today sales.
+                increase in today projects.
               </p>
             </CardBody>
             <CardFooter chart>
               <div className={classes.stats}>
-                <AccessTime /> updated 4 minutes ago
+                <AccessTime /> Updated 1 Day Ago
               </div>
             </CardFooter>
           </Card>
@@ -187,9 +240,9 @@ export default function Dashboard() {
       </GridContainer> */}
 
       <GridContainer>
-        <GridItem xs={12} sm={6} md={6}>
+        {/* <GridItem xs={12} sm={6} md={6}>
           <CustomTabs
-            title="Tasks:"
+            title="Tasks :"
             headerColor="primary"
             tabs={[
               {
@@ -203,31 +256,54 @@ export default function Dashboard() {
                   />
                 ),
               },
-              {
-                tabName: 'Website',
-                tabIcon: Code,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[0]}
-                    tasksIndexes={[0, 1]}
-                    tasks={website}
-                  />
-                ),
-              },
-              {
-                tabName: 'Server',
-                tabIcon: Cloud,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[1]}
-                    tasksIndexes={[0, 1, 2]}
-                    tasks={server}
-                  />
-                ),
-              },
+              // {
+              //   tabName: 'Website',
+              //   tabIcon: Code,
+              //   tabContent: (
+              //     <Tasks
+              //       checkedIndexes={[0]}
+              //       tasksIndexes={[0, 1]}
+              //       tasks={website}
+              //     />
+              //   ),
+              // },
+              // {
+              //   tabName: 'Server',
+              //   tabIcon: Cloud,
+              //   tabContent: (
+              //     <Tasks
+              //       checkedIndexes={[1]}
+              //       tasksIndexes={[0, 1, 2]}
+              //       tasks={server}
+              //     />
+              //   ),
+              // },
             ]}
           />
-        </GridItem>
+        </GridItem> */}
+
+        <GridItem xs={12} sm={6} md={6}>
+            <Card>
+              <CardHeader color="primary">
+                <h4 className={classes.cardTitleWhite}>Tasks List</h4>
+                <p className={classes.cardCategoryWhite}>
+                  Task updates 1 Day Ago
+                </p>
+              </CardHeader>
+              <CardBody>
+                <Table
+                  tableHeaderColor="primary"
+                  tableHead={['Task ID', 'Task Description', 'Action']}
+                  tableData={[
+                    ['001', 'Complete Rastek.ID React Dashboard', 'In Progress'],
+                    ['002', 'Fix erver bugs reported by Client', 'Pending'],
+                    ['003', 'Deploy new version of API', 'Completed'],
+                    ['004', 'Design new UI Components', 'Not Started'],
+                  ]}
+                />
+              </CardBody>
+            </Card>
+          </GridItem>
 
         <GridItem xs={12} sm={6} md={6}>
           <Card>

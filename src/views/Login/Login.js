@@ -101,7 +101,7 @@ function Login() {
     const handleSubmitLogin = (e) => {
       e.preventDefault();
       if (!isUsername || !isPassword) {
-        alert('Isi form anjing!');
+        alert('Form empty, must be filled!');
         return;
       }
       handleSubmitGeneric(

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route, useRouteMatch, useHistory } from 'react-router-dom';
 
 import GridItem from 'components/Grid/GridItem.js';
@@ -9,21 +9,120 @@ import CardBody from 'components/Card/CardBody.js';
 import Button from 'components/CustomButtons/Button';
 import { blackColor } from 'assets/jss/material-dashboard-react';
 
-//material-ui
+// Material-UI icons
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import FilterListRoundedIcon from '@material-ui/icons/FilterListRounded';
 import CustomInput from 'components/CustomInput/CustomInput';
 import AddEmployees from './AddEmployees';
 
-// import { Height } from "@material-ui/icons";
+const styles = {
+  cardTitle: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontSize: '17px',
+    fontWeight: 'bold',
+    color: '#333',
+    padding: '20px',
+    paddingLeft: '30px',
+    borderBottom: '1px solid #ddd',
+  },
+  buttonGroup: {
+    display: 'flex',
+    gap: '10px',
+  },
+  button: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '8px 16px',
+    fontSize: '14px',
+    fontWeight: '500',
+    color: '#333',
+    border: '1px solid #e0e0e0',
+    borderRadius: '7px',
+    backgroundColor: 'white',
+    cursor: 'pointer',
+    transition: 'background-color 0.2s',
+    '&:hover': {
+      backgroundColor: '#f5f5f5',
+    },
+  },
+  searchInputContainer: {
+    position: 'relative',
+    width: '250px',
+  },
+  paginationContainer: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginTop: '15px',
+    gap: '8px',
+  },
+  paginationButton: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '30px',
+    height: '30px',
+    borderRadius: '8px',
+    border: '1px solid #e0e0e0',
+    fontSize: '14px',
+    cursor: 'pointer',
+    transition: 'background-color 0.2s',
+    '&:hover': {
+      backgroundColor: '#f5f5f5',
+    },
+  },
+  paginationText: {
+    fontSize: '14px',
+    color: '#333',
+  },
+  pageNumber: {
+    fontSize: '14px',
+    fontWeight: 'bold',
+    padding: '0 5px',
+  },
+  tableContainer: {
+    padding: '10px 20px',
+  },
+  tableHeaderRow: {
+    backgroundColor: '#d9e2f3', // Apply background color to entire row
+  },
+  tableCell: {
+    textAlign: 'center',
+  },
+  tableCellName: {
+    textAlign: 'left',
+  },
+  actionButtonGroup: {
+    display: 'flex',
+    gap: '5px',
+    justifyContent: 'center',
+  },
+  actionButton: {
+    fontSize: '12px',
+    padding: '4px 8px',
+  },
+};
 
 export default function Employees() {
   const history = useHistory();
   const match = useRouteMatch();
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 100;
 
   const OpenEmployee = () => {
-    console.log('Navigating to Add Employee Page');
     history.push(`${match.url}/addEmployee`);
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   return (
@@ -35,147 +134,95 @@ export default function Employees() {
       </Switch>
 
       <Card>
-        <CardBody>
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={12}>
-              <div style={{ display: 'flex', justifyContent: 'left' }}>
-                <h4
-                  style={{
-                    fontWeight: 'bold',
-                    marginBottom: '30px',
-                    marginTop: '12px',
-                  }}
-                >
-                  Employees Data
-                </h4>
-              </div>
-            </GridItem>
-            <hr
-              style={{
-                width: '100%',
-                margin: 'auto',
-                borderTop: '1px solid #ddd',
-              }}
-            />
-          </GridContainer>
-
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={12}>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
+        <div style={styles.cardTitle}>Employees Data</div>
+        <CardBody style={styles.tableContainer}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '5px',
+            }}
+          >
+            <div style={styles.searchInputContainer}>
+              <CustomInput
+                labelText="Search"
+                id="Search"
+                formControlProps={{
+                  fullWidth: true,
                 }}
-              >
-                <div>
-                  <CustomInput
-                    labelText="Search"
-                    id="Search"
-                    // inputProps={{
-                    //     value: "..."
-                    // }}
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                  />
-                </div>
-
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent:
-                      'flex-end' /* Memposisikan tombol ke kanan */,
-                    gap: '10px',
-                  }}
-                >
-                  {/* Add Employee Button */}
-                  <Button
-                    onClick={OpenEmployee}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      backgroundColor: '#FFFFFF',
-                      border: '2px solid #E0E0E0',
-                      borderRadius: '8px',
-                      padding: '8px 16px',
-                      cursor: 'pointer',
-                      height: '43px',
-                    }}
-                  >
-                    <AddRoundedIcon
-                      style={{ marginRight: '8px', color: blackColor }}
-                    />
-                    <p style={{ color: blackColor }}>Add Employee</p>
-                  </Button>
-
-                  {/* Filter Button */}
-                  <Button
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      backgroundColor: '#FFFFFF',
-                      border: '2px solid #E0E0E0',
-                      borderRadius: '8px',
-                      padding: '8px 16px',
-                      cursor: 'pointer',
-                      height: '43px',
-                    }}
-                  >
-                    <FilterListRoundedIcon
-                      style={{ marginRight: '8px', color: blackColor }}
-                    />
-                    <p style={{ color: blackColor }}>Filter</p>
-                  </Button>
-                </div>
-              </div>
-            </GridItem>
-          </GridContainer>
-
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={12}>
-              <Table
-                tableHeaderColor={blackColor}
-                // tableHead={["Name", "Status", "Divisi", "Department", "Role", "Action"]}
-                tableHead={[
-                  <th style={{ fontWeight: 'bold' }}>Name</th>,
-                  <th style={{ fontWeight: 'bold' }}>Status</th>,
-                  <th style={{ fontWeight: 'bold' }}>Divisi</th>,
-                  <th style={{ fontWeight: 'bold' }}>Department</th>,
-                  <th style={{ fontWeight: 'bold' }}>Role</th>,
-                  <th style={{ fontWeight: 'bold' }}>Action</th>,
-                ]}
-                tableData={[
-                  [
-                    'Ilham Yushronni',
-                    'Active',
-                    'Engineering',
-                    'Software Development',
-                    'Frontend Developer',
-                    'Edit',
-                  ],
-                  [
-                    'Akmal Malika',
-                    'Active',
-                    'Engineering',
-                    'Software Development',
-                    'Software Developer',
-                    'Edit',
-                  ],
-                  [
-                    'Lazuardi Fajar',
-                    'Active',
-                    'IT Support',
-                    'Technical Support',
-                    'IT Support Specialist',
-                    'Edit',
-                  ],
-                ]}
               />
-            </GridItem>
-          </GridContainer>
+            </div>
+
+            <div style={styles.buttonGroup}>
+              <Button onClick={OpenEmployee} style={styles.button}>
+                <AddRoundedIcon style={{ marginRight: '8px' }} />
+                Add Employee
+              </Button>
+
+              <Button style={styles.button}>
+                <FilterListRoundedIcon style={{ marginRight: '8px' }} />
+                Filter
+              </Button>
+            </div>
+          </div>
+
+          <Table
+            tableHeaderColor={blackColor}
+            tableHead={[
+              <th style={{ ...styles.tableHeaderRow, fontWeight: 'bold' }}>NIP</th>,
+              <th style={{ ...styles.tableHeaderRow, fontWeight: 'bold' }}>Name</th>,
+              <th style={{ ...styles.tableHeaderRow, fontWeight: 'bold' }}>Status</th>,
+              <th style={{ ...styles.tableHeaderRow, fontWeight: 'bold' }}>Divisi</th>,
+              <th style={{ ...styles.tableHeaderRow, fontWeight: 'bold' }}>Department</th>,
+              <th style={{ ...styles.tableHeaderRow, fontWeight: 'bold' }}>Role</th>,
+              <th style={{ ...styles.tableHeaderRow, fontWeight: 'bold' }}>Action</th>,
+            ]}
+            tableData={[
+              ['10001', 'Ilham Yushronni', 'Active', 'Engineering', 'Software Development', 'Frontend Developer', 
+               <div style={styles.actionButtonGroup}>
+                 <Button style={styles.actionButton}>Edit</Button>
+                 <Button style={styles.actionButton}>View</Button>
+               </div>],
+              ['10002', 'Akmal Malika', 'Active', 'Engineering', 'Software Development', 'Software Developer',
+               <div style={styles.actionButtonGroup}>
+                 <Button style={styles.actionButton}>Edit</Button>
+                 <Button style={styles.actionButton}>View</Button>
+               </div>],
+              ['10003', 'Lazuardi Fajar', 'Active', 'IT Support', 'Technical Support', 'IT Support Specialist',
+               <div style={styles.actionButtonGroup}>
+                 <Button style={styles.actionButton}>Edit</Button>
+                 <Button style={styles.actionButton}>View</Button>
+               </div>],
+              ['10004', 'Ankara Messi', 'Active', 'Finance', 'External Payment', 'Finance',
+               <div style={styles.actionButtonGroup}>
+                 <Button style={styles.actionButton}>Edit</Button>
+                 <Button style={styles.actionButton}>View</Button>
+               </div>],
+              ['10005', 'Putti Moana', 'Inactive', 'IT Support', 'Technical Support', 'IT Support Specialist',
+               <div style={styles.actionButtonGroup}>
+                 <Button style={styles.actionButton}>Edit</Button>
+                 <Button style={styles.actionButton}>View</Button>
+               </div>],
+            ]}
+          />
+
+          <div style={styles.paginationContainer}>
+            <Button onClick={handlePreviousPage} disabled={currentPage === 1} style={styles.paginationButton}>
+              &lt;
+            </Button>
+            <span>Page</span>
+            <div style={{ ...styles.paginationButton, fontWeight: 'bold' }}>
+              {currentPage}
+            </div>
+            <span>of {totalPages}</span>
+            <Button onClick={handleNextPage} disabled={currentPage === totalPages} style={styles.paginationButton}>
+              &gt;
+            </Button>
+          </div>
         </CardBody>
       </Card>
     </div>
   );
 }
+

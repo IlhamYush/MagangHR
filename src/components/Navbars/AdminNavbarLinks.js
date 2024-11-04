@@ -61,8 +61,8 @@ export default function AdminNavbarLinks() {
 
   const OpenLoginRoutes = () => {
     history.push('/login');
-    handleCloseProfile
-  }
+    handleCloseProfile;
+  };
 
   return (
     <div>
@@ -166,10 +166,8 @@ export default function AdminNavbarLinks() {
 
           {/* <Person className={classes.icons} /> */}
           <div className={classes.userInfo}>
-            <span className={classes.userName}>
-              Nicholas Davi Erlangga Susilo
-            </span>
-            <span className={classes.userEmail}>lazz123@gmail.com</span>
+            <span className={classes.userName}>Lazuardi Ramadhan</span>
+            <span className={classes.userEmail}>lazrd@gmail.com</span>
           </div>
           <Hidden mdUp implementation="css">
             <p className={classes.linkText}>Profile</p>
