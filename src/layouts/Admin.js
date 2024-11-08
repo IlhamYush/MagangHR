@@ -19,6 +19,7 @@ import routes from 'routes.js';
 import styles from 'assets/jss/material-dashboard-react/layouts/adminStyle.js';
 import bgImage from 'assets/img/sidebar-2.jpg';
 import logo from 'assets/img/RastekLogo.png';
+import AddRoles from 'views/Roles/AddRoles/AddRoles';
 
 let ps;
 
@@ -27,7 +28,7 @@ const switchRoutes = (
     {routes
       .filter((prop) => !prop.hideInSidebar)
       .map((prop, key) => {
-        if (prop.layout === '/admin' || prop.layout === '/public') {
+        if (prop.layout === '/admin' || prop.layout === '/admin') {
           return (
             <Route
               path={prop.layout + prop.path}
@@ -40,6 +41,7 @@ const switchRoutes = (
       })}
     <Route path="/admin/user" component={UserProfile} />
     <Route path="/admin/employees/addEmployee" component={AddEmployees} />
+    <Route path="/admin/addroles" component={AddRoles} />
     <Redirect from="/admin" to="/admin/dashboard" />
   </Switch>
 );

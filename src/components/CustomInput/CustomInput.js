@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Clear from '@material-ui/icons/Clear';
@@ -20,12 +20,8 @@ export default function CustomInput(props) {
   } = props;
 
   const classes = useStyles();
-  const [isFocused, setIsFocused] = useState(false);
   const [value, setValue] = useState('');
-  const [labelVisible, setLabelVisible] = useState(true);
 
-  const handleFocus = () => setIsFocused(true);
-  const handleBlur = () => setIsFocused(false);
   const handleChange = (e) => setValue(e.target.value);
 
   const feedbackIcon = error ? (
@@ -33,14 +29,6 @@ export default function CustomInput(props) {
   ) : success ? (
     <Check className={classes.feedback + ' ' + classes.labelRootSuccess} />
   ) : null;
-
-  useEffect(() => {
-    if (isFocused || value) {
-      setLabelVisible(false); // Hide label saat fokus atau ada nilai
-    } else {
-      setLabelVisible(true); // Show label saat blur dan kosong
-    }
-  }, [isFocused, value]);
 
   return (
     <div className={classes.formControl}>
@@ -57,18 +45,11 @@ export default function CustomInput(props) {
           endAdornment: feedbackIcon,
           classes: {
             notchedOutline: classes.notchedOutline,
+            input: classes.inputBase,
           },
         }}
-        // InputLabelProps={{
-        //   classes: {
-        //     root: labelVisible ? classes.labelRoot : classes.labelHidden, // Mengontrol class label agar dapat berubah
-        //   },
-        //   shrink: false, // Tidak mengapungkan label secara otomatis
-        // }}
-        // onFocus={handleFocus}
-        // onBlur={handleBlur}
         fullWidth={formControlProps ? formControlProps.fullWidth : false}
-        className={rtlActive ? classes.labelRTL : ''}
+        className={`${classes.root} ${rtlActive ? classes.labelRTL : ''}`}
       />
     </div>
   );

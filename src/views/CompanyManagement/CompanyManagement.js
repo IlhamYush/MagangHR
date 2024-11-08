@@ -271,7 +271,7 @@ export default function CompanyManagement() {
 
                       <CustomInput
                         id="department-name"
-                        labelText="Department Name"
+                        // labelText="Department Name"
                         inputProps={{
                           value: departement_name,
                           onChange: (e) => setdepartement_name(e.target.value),

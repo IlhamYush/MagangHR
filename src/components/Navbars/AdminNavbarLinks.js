@@ -184,7 +184,7 @@ export default function AdminNavbarLinks() {
           anchorEl={openProfile}
           transition
           disablePortal
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          anchororigin={{ vertical: 'bottom', horizontal: 'center' }}
           transformOrigin={{ vertical: 'top', horizontal: 'center' }}
           className={
             classNames({ [classes.popperClose]: !openProfile }) +

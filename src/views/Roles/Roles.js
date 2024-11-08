@@ -1,15 +1,3 @@
-cursor: value < 1 ? 'pointer' : 'not-allowed'
-
-Sama saja dengan
-
-if (value === 1){
-    cursor = 'pointer';
-} else {
-    cursor = 'not-allowed';
-}
-
-
-
 import React from 'react';
 import { InputAdornment, makeStyles } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
@@ -25,9 +13,6 @@ import GridItem from 'components/Grid/GridItem';
 
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import { blackColor } from 'assets/jss/material-dashboard-react';
-
-import Tab from '@material-ui/core';
-import Tabs from '@material-ui/core';
 
 const styles = {
   header: {

@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
+
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
-import Box from '@material-ui/core/Box';
 
 // import { makeStyles } from "@material-ui/core/styles";
+import LockRoundedIcon from '@material-ui/icons/LockRounded';
 import ImportContactsRoundedIcon from '@material-ui/icons/ImportContactsRounded';
 import PersonOutlineRoundedIcon from '@material-ui/icons/PersonOutlineRounded';
-import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
-import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
-import LockRoundedIcon from '@material-ui/icons/LockRounded';
 
 // core components
 import Card from 'components/Card/Card.js';
-import AddPersonalInfo from './AddData/AddPersonalInfo';
+import CardBody from 'components/Card/CardBody';
+
 import AddBasicInfo from './AddData/AddBasicInfo';
+import AddPersonalInfo from './AddData/AddPersonalInfo';
 import GenerateAccount from './AddData/GenerateAccount';
 
 export default function AddEmployees() {
@@ -43,42 +43,41 @@ export default function AddEmployees() {
   return (
     <div>
       <Card>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="icon tabs example"
-            indicatorColor="primary"
-            style={{ marginTop: '16px', marginLeft: '23px' }} // Adjusts the top spacing of the Tabs
-          >
-            <Tab icon={<PersonOutlineRoundedIcon />} aria-label="Person" />
-            <Tab icon={<ImportContactsRoundedIcon />} aria-label="BasicInfo" />
-            <Tab
-              icon={<LockRoundedIcon />}
-              aria-label="GenerateAcc"
-              disabled={handleEnable}
-            />
-          </Tabs>
-
-          <hr
-            style={{
-              width: '95%', // set panjang line
-              margin: 'auto', // menambah spacing
-              borderTop: '1px solid #ddd',
-            }}
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="icon tabs example"
+          indicatorColor="primary"
+          style={{ marginTop: '16px', marginLeft: '23px' }} // Adjusts the top spacing of the Tabs
+        >
+          <Tab icon={<PersonOutlineRoundedIcon />} aria-label="Person" />
+          <Tab icon={<ImportContactsRoundedIcon />} aria-label="BasicInfo" />
+          <Tab
+            icon={<LockRoundedIcon />}
+            aria-label="GenerateAcc"
+            disabled={handleEnable}
           />
+        </Tabs>
 
-          <TabPanel value={value} index={0}>
-            <AddPersonalInfo />
-          </TabPanel>
+        <hr
+          style={{
+            width: '95%', // set panjang line
+            margin: 'auto', // menambah spacing
+            borderTop: '1px solid #ddd',
+          }}
+        />
 
-          <TabPanel value={value} index={1}>
-            <AddBasicInfo />
-          </TabPanel>
+        <TabPanel value={value} index={0}>
+          <AddPersonalInfo />
+        </TabPanel>
 
-          <TabPanel value={value} index={2}>
-            <GenerateAccount />
-          </TabPanel>
+        <TabPanel value={value} index={1}>
+          <AddBasicInfo />
+        </TabPanel>
 
+        <TabPanel value={value} index={2}>
+          <GenerateAccount />
+        </TabPanel>
       </Card>
     </div>
   );
@@ -95,7 +94,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box p={2}>{children}</Box>}
+      {value === index && <CardBody p={2}>{children}</CardBody>}
     </div>
   );
 }

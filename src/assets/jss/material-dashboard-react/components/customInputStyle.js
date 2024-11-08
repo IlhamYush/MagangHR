@@ -21,9 +21,15 @@ const customInputStyle = {
     },
   },
   notchedOutline: {
-    borderRadius: '8px', // Menambahkan borderRadius khusus
+    borderRadius: '8px',
     borderWidth: '2px',
-    // padding: "0 10px",
+    transition: 'all 0.3s ease-in-out',
+  },
+  root: {
+    '& .MuiInputBase-input': {
+      borderRadius: '8px', // Sesuaikan radius pada input
+      backgroundColor: 'rgba(255, 255, 255)', // Sesuaikan warna background
+    },
   },
   underlineError: {
     '&:after': {
@@ -45,10 +51,6 @@ const customInputStyle = {
     transition: 'transform 0.3s ease-out',
     opacity: 1,
   },
-  labelHidden: {
-    opacity: 0,
-    transition: 'transform 0.3s ease-out',
-  },
   labelRootError: {
     color: dangerColor[0],
   },
@@ -68,7 +70,7 @@ const customInputStyle = {
   },
   formControl: {
     paddingBottom: '10px',
-    margin: '27px 0 0 0',
+    margin: '10px 0 0 0',
     position: 'relative',
     verticalAlign: 'unset',
   },
