@@ -1,38 +1,19 @@
 import React from 'react';
-// @material-ui/core components
-import { makeStyles } from '@material-ui/core/styles';
 // import InputLabel from "@material-ui/core/InputLabel";
-
+import { makeStyles } from '@material-ui/core';
 // core components
 import GridItem from 'components/Grid/GridItem.js';
 import GridContainer from 'components/Grid/GridContainer.js';
 import CustomInput from 'components/CustomInput/CustomInput.js';
-import Button from 'components/CustomButtons/Button.js';
 import Card from 'components/Card/Card.js';
-import CardHeader from 'components/Card/CardHeader.js';
 import CardBody from 'components/Card/CardBody.js';
 import CardFooter from 'components/Card/CardFooter.js';
 
-const styles = {
-  cardCategoryWhite: {
-    color: 'rgba(255,255,255,.62)',
-    margin: '0',
-    fontSize: '14px',
-    marginTop: '0',
-    marginBottom: '0',
+const useStyles = makeStyles({
+  disableInput: {
+    color: 'black',
   },
-  cardTitleWhite: {
-    color: '#FFFFFF',
-    marginTop: '0px',
-    minHeight: 'auto',
-    fontWeight: '300',
-    fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-    marginBottom: '3px',
-    textDecoration: 'none',
-  },
-};
-
-const useStyles = makeStyles(styles);
+});
 
 export default function BasicInfo() {
   const classes = useStyles();
@@ -71,9 +52,13 @@ export default function BasicInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
-              // inputProps={{
-              //   disabled: true,
-              // }}
+              inputProps={{
+                disabled: true,
+                value: 'IT Consultant',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
@@ -83,6 +68,13 @@ export default function BasicInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: '1 Januari 2023',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
@@ -91,6 +83,13 @@ export default function BasicInfo() {
               id="email-address"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                disabled: true,
+                value: '1 Januari 2024',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>
@@ -104,6 +103,13 @@ export default function BasicInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: 'Consulting Services',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
@@ -113,6 +119,13 @@ export default function BasicInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: 'IT Solutions',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
@@ -121,6 +134,13 @@ export default function BasicInfo() {
               id="Department"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                disabled: true,
+                value: 'Software Implementation',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>
@@ -134,6 +154,13 @@ export default function BasicInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: 'IDR 25,000,000',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
@@ -143,6 +170,13 @@ export default function BasicInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: 'Full-Time Contract',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
@@ -151,6 +185,13 @@ export default function BasicInfo() {
               id="postal-code"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                disabled: true,
+                value: 'ITIL Certificate',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>

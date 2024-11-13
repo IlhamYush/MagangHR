@@ -1,20 +1,3 @@
-// import axios from 'axios';
-// import API_BASE_URL from './apiConfig';
-
-// const api = axios.create({
-//     baseURL: API_BASE_URL
-// });
-
-// export const fetchData = async () => {
-//     try {
-//         const response = await api.post('/endpoint');
-//         return response.data;
-//     }
-//     catch (error) {
-//         console.error('Error Fetching Data', error);
-//     }
-// };
-
 import axios from 'axios';
 import API_BASE_URL from './apiConfig';
 
@@ -25,4 +8,18 @@ const api = axios.create({
   },
 });
 
-export default api; // Hanya export instance axios
+// // Pengambilan Token
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
+
+export default api;

@@ -34,7 +34,7 @@ export default function Snackbar(props) {
   }
   return (
     <Snack
-      anchorOrigin={{
+      anchororigin={{
         vertical: place.indexOf('t') === -1 ? 'bottom' : 'top',
         horizontal:
           place.indexOf('l') !== -1

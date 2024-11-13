@@ -1,0 +1,121 @@
+/* customDatePicker.css */
+
+/* Center container style */
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__header {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.react-datepicker__header {
+    background-color: #fff;
+    border-bottom: none;
+    padding-top: 10px;
+}
+
+.react-datepicker {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+}
+
+.react-datepicker__triangle {
+    display: none;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+    background-color: #007bff !important;
+    color: white !important;
+    border-radius: 50%;
+}
+
+.react-datepicker__day:hover {
+    background-color: #f5f5f5;
+    border-radius: 50%;
+}
+
+.react-datepicker__month-container {
+    padding: 0;
+}
+
+.react-datepicker__current-month {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__day--outside-month {
+    color: #888;
+}
+
+.react-datepicker__day--outside-month {
+    color: #ddd;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+}
+
+.button-container button {
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-container .cancel-button {
+    border: 1px solid #333;
+    color: #333;
+    background-color: #fff;
+}
+
+.button-container .apply-button {
+    border: none;
+    color: #fff;
+    background-color: #007bff;
+}
+.react-datepicker__month-dropdown-container,
+.react-datepicker__year-dropdown-container {
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.react-datepicker__month-select,
+.react-datepicker__year-select {
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.react-datepicker__month-select:hover,
+.react-datepicker__year-select:hover {
+  border-color: #b3b3b3;
+}
+
+.react-datepicker__month-select:focus,
+.react-datepicker__year-select:focus {
+  outline: none;
+  border-color: #6366f1; /* Add a highlight color on focus */
+}
+
+.react-datepicker__month-select,
+.react-datepicker__year-select:active {
+  background-color: #f0f0f0;
+}

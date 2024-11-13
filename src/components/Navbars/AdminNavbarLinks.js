@@ -42,6 +42,8 @@ export default function AdminNavbarLinks() {
   //   setOpenNotification(null);
   // };
 
+  const token = localStorage.getItem('authToken');
+
   const handleClickProfile = (event) => {
     if (openProfile && openProfile.contains(event.target)) {
       setOpenProfile(null);
@@ -60,6 +62,7 @@ export default function AdminNavbarLinks() {
   };
 
   const OpenLoginRoutes = () => {
+    localStorage.removeItem('authToken', token);
     history.push('/login');
     handleCloseProfile;
   };
@@ -179,7 +182,7 @@ export default function AdminNavbarLinks() {
           anchorEl={openProfile}
           transition
           disablePortal
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          anchororigin={{ vertical: 'bottom', horizontal: 'center' }}
           transformOrigin={{ vertical: 'top', horizontal: 'center' }}
           className={
             classNames({ [classes.popperClose]: !openProfile }) +

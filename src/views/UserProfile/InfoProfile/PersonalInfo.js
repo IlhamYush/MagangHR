@@ -1,7 +1,6 @@
 import React from 'react';
 
 //Styles
-// import { makeStyles } from "@material-ui/core/styles";
 
 //Core Components
 import GridItem from 'components/Grid/GridItem';
@@ -11,33 +10,7 @@ import Button from 'components/CustomButtons/Button';
 import CardBody from 'components/Card/CardBody';
 import CardFooter from 'components/Card/CardFooter';
 
-// const styles = {
-//   cardCategoryWhite: {
-//     color: "rgba(255,255,255,.62)",
-//     margin: "0",
-//     fontSize: "14px",
-//     marginTop: "0",
-//     marginBottom: "0",
-//   },
-//   cardTitleWhite: {
-//     color: "#FFFFFF",
-//     marginTop: "0px",
-//     minHeight: "auto",
-//     fontWeight: "300",
-//     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-//     marginBottom: "3px",
-//     textDecoration: "none",
-//   },
-//   Button: {
-//     color: "#319ADD",
-//   },
-// };
-
-// const useStyles = makeStyles(styles);
-
 export default function PersonalInfo() {
-  // const classes = useStyles();
-
   return (
     <div>
       <CardBody>
@@ -72,6 +45,13 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: 'Nicholas Davi Erlangga Susilo',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
 
@@ -81,6 +61,13 @@ export default function PersonalInfo() {
               id="NomorInduk"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                disabled: true,
+                value: '1234567890',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>
@@ -92,6 +79,13 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: '3201234567890001',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
 
@@ -101,6 +95,13 @@ export default function PersonalInfo() {
               id="NomorNPWP"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                disabled: true,
+                value: '12.345.678.9-012.345',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>
@@ -114,6 +115,13 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: '3201234567890002',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
 
@@ -123,6 +131,13 @@ export default function PersonalInfo() {
               id="AlamatLengkap"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                disabled: true,
+                value: 'Jl. Sudirman No, 50, Jakarta Selatan',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>
@@ -136,6 +151,13 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: 'Islam',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
 
@@ -145,6 +167,13 @@ export default function PersonalInfo() {
               id="TempatLahir"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                disabled: true,
+                value: 'Bandung',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>
@@ -156,6 +185,13 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: 'Laki-laki',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
 
@@ -165,6 +201,13 @@ export default function PersonalInfo() {
               id="NamaIbu"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                disabled: true,
+                value: 'Eti Fatmawati',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>
@@ -178,6 +221,12 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                value: 'Jl. Sudirman No. 50, Jakarta Selatan',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
 
@@ -188,6 +237,13 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: '081234567890',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
 
@@ -197,6 +253,12 @@ export default function PersonalInfo() {
               id="KontakDarurat"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                value: 'Muhammad Mubasir',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>
@@ -210,6 +272,12 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                value: '081234567891',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
 
@@ -219,6 +287,12 @@ export default function PersonalInfo() {
               id="EmailPribadi"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                value: 'Herjuna@gmail.com',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>
@@ -232,6 +306,13 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: 'S1 Teknik Informatika',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
 
@@ -242,6 +323,13 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                disabled: true,
+                value: 'Teknik Informatika',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
 
@@ -251,6 +339,13 @@ export default function PersonalInfo() {
               id="Universitas"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                disabled: true,
+                value: 'Telkom University',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>
@@ -264,6 +359,12 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                value: 'Belum Menikah',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
 
@@ -273,6 +374,12 @@ export default function PersonalInfo() {
               id="JumlahAnak"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                value: '0',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>
@@ -286,6 +393,12 @@ export default function PersonalInfo() {
               formControlProps={{
                 fullWidth: true,
               }}
+              inputProps={{
+                value: 'BCA',
+                style: {
+                  color: 'black',
+                },
+              }}
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={6}>
@@ -294,6 +407,12 @@ export default function PersonalInfo() {
               id="NoRekening"
               formControlProps={{
                 fullWidth: true,
+              }}
+              inputProps={{
+                value: '1234567890',
+                style: {
+                  color: 'black',
+                },
               }}
             />
           </GridItem>

@@ -107,10 +107,8 @@ h6 {
 }
 
 body {
-  /* background-color: #e2e5f5; */
-  background: linear-gradient(to bottom, #e2e5f5, #4a628a);
+  background: linear-gradient(to bottom, #e2e5f5, #319add);
   color: #3c4858;
-  /* color: #4A628A; */
 }
 
 blockquote p {

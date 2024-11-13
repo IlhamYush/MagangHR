@@ -18,6 +18,8 @@ import Employees from 'views/Employees/Employees.js';
 import CompanyManagement from 'views/CompanyManagement/CompanyManagement';
 import AddEmployees from 'views/Employees/AddEmployees.js';
 import Attendance from 'views/Attendance/Attendance';
+import Roles from 'views/Roles/Roles.js';
+import AddRoles from 'views/Roles/AddRoles/AddRoles';
 
 const dashboardRoutes = [
   {
@@ -68,11 +70,11 @@ const dashboardRoutes = [
     layout: '/admin',
   },
   {
-    path: '/maps',
+    path: '/roles',
     name: 'Maps',
     rtlName: 'خرائط',
     icon: LocationOn,
-    component: Maps,
+    component: Roles,
     layout: '/admin',
   },
   {
@@ -83,13 +85,20 @@ const dashboardRoutes = [
     component: NotificationsPage,
     layout: '/admin',
   },
-  {
-    path: '/addEmployee',
-    name: 'Add Employee',
-    component: AddEmployees,
-    layout: '/admin/employees',
-    hideInSidebar: true,
-  },
+  // {
+  //   path: '/addEmployee',
+  //   name: 'Add Employee',
+  //   component: AddEmployees,
+  //   layout: '/admin/employees',
+  //   hideInSidebar: true,
+  // },
+  // {
+  //   path: '/addroles',
+  //   name: 'Add Roles',
+  //   component: AddRoles,
+  //   layout: '/admin/addroles',
+  //   hideInSidebar: true,
+  // }
 ];
 
 export default dashboardRoutes;
