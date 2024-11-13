@@ -11,7 +11,8 @@ const employeeSlice = createSlice({
     setJoinDate: (state, action) => {
       state.joinDate = action.payload;
     },
-    setDumpNik: (state, action) => { // Tambahkan reducer setDumpNik
+    setDumpNik: (state, action) => {
+      // Tambahkan reducer setDumpNik
       state.dumpnik = action.payload;
     },
   },

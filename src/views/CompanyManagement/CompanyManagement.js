@@ -271,8 +271,8 @@ export default function CompanyManagement() {
 
                       <CustomInput
                         id="department-name"
-                        // labelText="Department Name"
                         inputProps={{
+                          placeholder: 'Departement Name',
                           value: departement_name,
                           onChange: (e) => setdepartement_name(e.target.value),
                         }}
@@ -295,8 +295,8 @@ export default function CompanyManagement() {
 
                       <CustomInput
                         id="department-head"
-                        labelText="Department Head"
                         inputProps={{
+                          placeholder: 'Departement Head',
                           value: departement_head,
                           onChange: (e) => setDepartement_head(e.target.value),
                         }}
@@ -383,8 +383,8 @@ export default function CompanyManagement() {
 
                       <CustomInput
                         id="division-name"
-                        labelText="Division Name"
                         inputProps={{
+                          placeholder: 'Division Name',
                           value: division_name,
                           onChange: (e) => setDivision_name(e.target.value),
                         }}
@@ -470,11 +470,11 @@ export default function CompanyManagement() {
                       </p>
                       <CustomInput
                         id="SubDivision-Input"
-                        labelText="Create Sub Division"
                         formControlProps={{
                           fullWidth: true,
                         }}
                         inputProps={{
+                          placeholder: 'Sub Division Name',
                           value: subDivision_name,
                           onChange: (e) => setSubdivision_name(e.target.value),
                         }}
@@ -614,11 +614,11 @@ export default function CompanyManagement() {
                       </p>
                       <CustomInput
                         id="Position-name"
-                        labelText="Position"
                         formControlProps={{
                           fullWidth: true,
                         }}
                         inputProps={{
+                          placeholder: 'Position Name',
                           value: nama_jabatan,
                           onChange: (e) => setPosition_name(e.target.value),
                         }}
@@ -635,11 +635,11 @@ export default function CompanyManagement() {
                       </p>
                       <CustomInput
                         id="PositionCode"
-                        labelText="Position Code"
                         formControlProps={{
                           fullWidth: true,
                         }}
                         inputProps={{
+                          placeholder: 'Position Code',
                           value: kode_jabatan,
                           onChange: (e) => setposition_code(e.target.value),
                         }}

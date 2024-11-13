@@ -14,7 +14,7 @@ import Login from 'views/Login/Login';
 import 'assets/css/material-dashboard-react.css?v=1.10.0';
 
 ReactDOM.render(
-  <Provider store={store}> 
+  <Provider store={store}>
     <BrowserRouter>
       <Switch>
         <Route path="/login" component={Login} />

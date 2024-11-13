@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setDumpNik } from '../EmployeeStore';
 
 import GridItem from 'components/Grid/GridItem';
@@ -42,9 +42,10 @@ export default function AddPersonalInfo() {
   });
 
   const formatDateForSubmit = (date) => {
-    if (!date) return '';
-    const [year, month, day] = date.split('-');
-    return `${year}/${month}/${day}`;
+    // if (!date) return '';
+    // const [year, month, day] = date.split('-');
+    // return `${year}/${month}/${day}`;
+    return date;
   };
 
   const handleChange = (event) => {
@@ -69,17 +70,16 @@ export default function AddPersonalInfo() {
       const response = await api.post(
         `${API_BASE_URL}/api/addEmployee`,
         // formattedData,
-        employeeData,
+        formattedData,
       );
 
-      const nik = response.data.nik; // pengambilan data nik dari response
-      dispatch(setDumpNik(nik)); // menyimpan nik ke dalam redux
-
-      if (nik) {
+      if (response.data && response.data.data && response.data.data.nik) {
+        const nik = response.data.data.nik; // Mengakses NIK dengan benar
+        dispatch(setDumpNik(nik)); // Menyimpan NIK ke dalam redux
         console.log('NIK berhasil diambil:', nik);
       } else {
         console.log('NIK tidak ditemukan dalam response.');
-        console.log('isi response : ', response);
+        console.log('Isi response:', response);
       }
 
       console.log('Data successfully submitted:', response.data);
@@ -145,6 +145,7 @@ export default function AddPersonalInfo() {
 
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
+            <p>Name</p>
             <CustomInput
               id="name"
               formControlProps={{
@@ -158,6 +159,7 @@ export default function AddPersonalInfo() {
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
+            <p>Nomor KTP</p>
             <CustomInput
               id="no_ktp"
               formControlProps={{
@@ -172,6 +174,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={4}>
+            <p>Nomor NPWP</p>
             <CustomInput
               id="npwp"
               formControlProps={{
@@ -188,6 +191,7 @@ export default function AddPersonalInfo() {
 
         <GridContainer>
           <GridItem xs={12} sm={12} md={6}>
+          <p>Nomor Kartu Keluarga</p>
             <CustomInput
               id="kartuKeluarga"
               formControlProps={{
@@ -202,6 +206,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={6}>
+          <p>Alamat</p>
             <CustomInput
               id="alamatLengkap"
               formControlProps={{
@@ -218,6 +223,7 @@ export default function AddPersonalInfo() {
 
         <GridContainer>
           <GridItem xs={12} sm={12} md={3}>
+          <p>Agama</p>
             <CustomInput
               id="agama"
               formControlProps={{
@@ -232,6 +238,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={3}>
+          <p>Tempat Lahir</p>
             <CustomInput
               id="tempatLahir"
               formControlProps={{
@@ -246,6 +253,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={3}>
+          <p>Jenis Kelamin</p>
             <CustomInput
               id="jenisKelamin"
               formControlProps={{
@@ -260,6 +268,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={3}>
+          <p>Nama Ibu</p>
             <CustomInput
               id="namaIbuKandung"
               formControlProps={{
@@ -276,6 +285,7 @@ export default function AddPersonalInfo() {
 
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
+          <p>Domisili</p>
             <CustomInput
               id="alamatDomisili"
               formControlProps={{
@@ -290,6 +300,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={4}>
+          <p>Nomor Telepon</p>
             <CustomInput
               id="noTelp"
               formControlProps={{
@@ -304,6 +315,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={4}>
+          <p>Nama Kontak Darurat</p>
             <CustomInput
               id="kontakDarurat"
               formControlProps={{
@@ -320,6 +332,7 @@ export default function AddPersonalInfo() {
 
         <GridContainer>
           <GridItem xs={12} sm={12} md={6}>
+          <p>Nomor Kontak Darurat</p>
             <CustomInput
               id="noKontakDarurat"
               formControlProps={{
@@ -334,6 +347,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={6}>
+          <p>Email</p>
             <CustomInput
               id="emailPribadi"
               formControlProps={{
@@ -350,6 +364,7 @@ export default function AddPersonalInfo() {
 
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
+          <p>Pendidikan Terakhir</p>
             <CustomInput
               id="pendidikanTerakhir"
               formControlProps={{
@@ -364,6 +379,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={4}>
+          <p>Jurusan</p>
             <CustomInput
               id="jurusan"
               formControlProps={{
@@ -378,6 +394,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={4}>
+          <p>Nama Universitas</p>
             <CustomInput
               id="namaUniversitas"
               formControlProps={{
@@ -394,6 +411,7 @@ export default function AddPersonalInfo() {
 
         <GridContainer>
           <GridItem xs={12} sm={12} md={6}>
+          <p>Status Pernikahan</p>
             <CustomInput
               id="statusPernikahan"
               formControlProps={{
@@ -408,6 +426,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={6}>
+          <p>Jumlah Anak</p>
             <CustomInput
               id="jumlahAnak"
               formControlProps={{
@@ -424,6 +443,7 @@ export default function AddPersonalInfo() {
 
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
+          <p>Bank</p>
             <CustomInput
               id="bank"
               formControlProps={{
@@ -437,6 +457,7 @@ export default function AddPersonalInfo() {
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
+          <p>Nomor Rekening</p>
             <CustomInput
               id="nomorRekening"
               formControlProps={{
@@ -451,6 +472,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={4}>
+          <p>Tanggal Lahir</p>
             <CustomInput
               id="tanggalLahir"
               formControlProps={{
@@ -468,6 +490,7 @@ export default function AddPersonalInfo() {
 
         <GridContainer>
           <GridItem xs={12} sm={12} md={6}>
+          <p>Tanggal Masuk Kerja</p>
             <CustomInput
               id="joinDate"
               inputProps={{
@@ -483,6 +506,7 @@ export default function AddPersonalInfo() {
           </GridItem>
 
           <GridItem xs={12} sm={12} md={6}>
+          <p>Status Kerja</p>
             <CustomInput
               id="status"
               formControlProps={{

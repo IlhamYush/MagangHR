@@ -33,7 +33,6 @@ export default function AddBasicInfo() {
     }
   }, [dumpnik]);
 
-
   const formatDateForSubmit = (date) => {
     if (!date) return '';
     const [year, month, day] = date.split('-');
