@@ -47,25 +47,8 @@ export default function Dashboard() {
   return (
     <div>
       <GridContainer>
-        {/* <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
-                <Icon><DateRange /></Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Attendance</p>
-              <h3 className={classes.cardTitle}>24 October 2024</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Last 15 Minutes
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem> */}
         <GridItem xs={12} sm={6} md={3}>
-          <Card>
+          <Card style={{ height: '160px' }}> {/* Set a consistent height */}
             <CardHeader color="warning" stats icon>
               <CardIcon color="warning">
                 <DateRange />
@@ -74,39 +57,11 @@ export default function Dashboard() {
               <h3 className={classes.cardTitle}>25 October 2024</h3>
             </CardHeader>
             <CardBody>
-              <div style={{ display: 'flex', justifyContent: 'center',gap: '15px', marginTop: '-5px', marginBottom: '-20px' }}>
-                <button
-                  style={{
-                    backgroundColor: '#4CAF50', /* Hijau */
-                    border: 'none',
-                    color: 'white',
-                    padding: '12px 25px',
-                    textAlign: 'center',
-                    textDecoration: 'none',
-                    display: 'inline-block',
-                    fontSize: '14px',
-                    margin: '4px 2px',
-                    cursor: 'pointer',
-                    borderRadius: '8px',
-                  }}
-                >
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginTop: '-5px', marginBottom: '-20px' }}>
+                <button style={{ backgroundColor: '#4CAF50', border: 'none', color: 'white', padding: '12px 25px', borderRadius: '8px', cursor: 'pointer' }}>
                   Check In
                 </button>
-                <button
-                  style={{
-                    backgroundColor: '#f44336', /* Merah */
-                    border: 'none',
-                    color: 'white',
-                    padding: '12px 25px',
-                    textAlign: 'center',
-                    textDecoration: 'none',
-                    display: 'inline-block',
-                    fontSize: '14px',
-                    margin: '4px 2px',
-                    cursor: 'pointer',
-                    borderRadius: '8px',
-                  }}
-                >
+                <button style={{ backgroundColor: '#f44336', border: 'none', color: 'white', padding: '12px 25px', borderRadius: '8px', cursor: 'pointer' }}>
                   Check Out
                 </button>
               </div>
@@ -120,18 +75,14 @@ export default function Dashboard() {
           </Card>
         </GridItem>
 
-
-
         <GridItem xs={12} sm={6} md={3}>
-          <Card>
+          <Card style={{ height: '160px' }}> {/* Ensure consistent height */}
             <CardHeader color="success" stats icon>
               <CardIcon color="success">
                 <Store />
               </CardIcon>
               <p className={classes.cardCategory}>Total Client</p>
-              <h3 className={classes.cardTitle}>
-                275 <small>Clients</small>
-              </h3>
+              <h3 className={classes.cardTitle}>275 <small>Clients</small></h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
@@ -143,14 +94,13 @@ export default function Dashboard() {
         </GridItem>
 
         <GridItem xs={12} sm={6} md={3}>
-          <Card>
+          <Card style={{ height: '160px' }}>
             <CardHeader color="info" stats icon>
               <CardIcon color="info">
                 <Accessibility />
               </CardIcon>
               <p className={classes.cardCategory}>Total Employees</p>
-              <h3 className={classes.cardTitle}>
-                100 <small>Employees</small></h3>
+              <h3 className={classes.cardTitle}>100 <small>Employees</small></h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
@@ -162,7 +112,7 @@ export default function Dashboard() {
         </GridItem>
 
         <GridItem xs={12} sm={6} md={3}>
-          <Card chart>
+          <Card style={{ height: '160px' }}>
             <CardHeader color="success">
               <ChartistGraph
                 className="ct-chart"
@@ -170,7 +120,7 @@ export default function Dashboard() {
                 type="Line"
                 options={dailySalesChart.options}
                 listener={dailySalesChart.animation}
-                style={{ height: '100px', width: '100%' }} // Menambahkan style untuk mengecilkan ukuran chart
+                style={{ height: '100px', width: '100%' }}
               />
             </CardHeader>
             <CardBody>
@@ -182,7 +132,7 @@ export default function Dashboard() {
                 increase in today projects.
               </p>
             </CardBody>
-            <CardFooter chart>
+            <CardFooter stats>
               <div className={classes.stats}>
                 <AccessTime /> Updated 1 Day Ago
               </div>
@@ -190,6 +140,7 @@ export default function Dashboard() {
           </Card>
         </GridItem>
       </GridContainer>
+
 
       {/* <GridContainer>
         <GridItem xs={12} sm={12} md={4}>

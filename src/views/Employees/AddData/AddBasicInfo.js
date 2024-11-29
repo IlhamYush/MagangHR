@@ -9,6 +9,7 @@ import GridItem from 'components/Grid/GridItem';
 
 import Button from 'components/CustomButtons/Button';
 import CustomInput from 'components/CustomInput/CustomInput';
+import ImportContactsRoundedIcon from '@material-ui/icons/ImportContactsRounded';
 
 const leaveStyles = {
   leaveInputContainer: {

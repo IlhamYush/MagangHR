@@ -1,5 +1,5 @@
-// @material-ui/icons
-import Dashboard from '@material-ui/icons/Dashboard';
+Y// @material-ui/icons
+import SpaceDashboardRoundedIcon from '@mui/icons-material/SpaceDashboardRounded';
 import Person from '@material-ui/icons/Person';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
 import BubbleChart from '@material-ui/icons/BubbleChart';
@@ -26,7 +26,7 @@ const dashboardRoutes = [
     path: '/dashboard',
     name: 'Dashboard',
     rtlName: 'لوحة القيادة',
-    icon: Dashboard,
+    icon: SpaceDashboardRoundedIcon,
     component: DashboardPage,
     layout: '/admin',
   },

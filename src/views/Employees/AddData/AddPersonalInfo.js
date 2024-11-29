@@ -42,9 +42,11 @@ export default function AddPersonalInfo() {
   });
 
   const formatDateForSubmit = (date) => {
-    if (!date) return '';
-    const [year, month, day] = date.split('-');
-    return `${year}/${month}/${day}`;
+    // if (!date) return '';
+    // const [year, month, day] = date.split('-');
+    // return `${year}/${month}/${day}`;
+    return date;
+    
   };
 
   const handleChange = (event) => {
@@ -69,17 +71,16 @@ export default function AddPersonalInfo() {
       const response = await api.post(
         `${API_BASE_URL}/api/addEmployee`,
         // formattedData,
-        employeeData,
+        formattedData,
       );
 
-      const nik = response.data.nik; // pengambilan data nik dari response
-      dispatch(setDumpNik(nik)); // menyimpan nik ke dalam redux
-
-      if (nik) {
+      if (response.data && response.data.data && response.data.data.nik) {
+        const nik = response.data.data.nik; // Mengakses NIK dengan benar
+        dispatch(setDumpNik(nik)); // Menyimpan NIK ke dalam redux
         console.log('NIK berhasil diambil:', nik);
       } else {
         console.log('NIK tidak ditemukan dalam response.');
-        console.log('isi response : ', response);
+        console.log('Isi response:', response);
       }
 
       console.log('Data successfully submitted:', response.data);

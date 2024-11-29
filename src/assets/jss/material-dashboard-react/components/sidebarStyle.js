@@ -23,17 +23,17 @@ const sidebarStyle = (theme) => ({
     position: 'fixed',
     top: '20px',
     bottom: '0',
-    left: '15px',
+    left: '15dpx',
     zIndex: '1',
     ...boxShadow,
     width: drawerWidth,
-    borderRadius: '15px',
+    borderRadius: '10px',
     // Edit Sidebar untuk versi Dekstop
     [theme.breakpoints.up('md')]: {
       width: drawerWidth,
       position: 'fixed',
       height: '96%',
-      borderRadius: '15px',
+      borderRadius: '10px',
     },
     // Edit Sidebar untuk versi Mobile
     [theme.breakpoints.down('sm')]: {
@@ -54,7 +54,7 @@ const sidebarStyle = (theme) => ({
       paddingLeft: '0',
       transform: `translate3d(${drawerWidth}px, 0, 0)`,
       ...transition,
-      borderRadius: '15px',
+      borderRadius: '10px',
     },
   },
   drawerPaperRTL: {
